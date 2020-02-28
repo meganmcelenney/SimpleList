@@ -24,6 +24,7 @@ public class SimpleList
 	{
 		list = new int[10];
 		count = 0;
+		System.out.println("test");
 	}
 	
 	/**
