@@ -37,10 +37,20 @@ public class SimpleList
 		count = count();
 		for(int i = count; i > 0; i--)
 		{
-			if(count == 10) // accounts for the kicking the last element out
+			if(count == list.length) // accounts for the kicking the last element out
 			{
-				list[count] = 0;
-				i--;
+				int increase = (list.length)/2;
+				int [] biggerList = new int[list.length + increase];
+				for(int j = 0; j < list.length; j++)
+				{
+					biggerList[j] = list[j];
+				}
+				list = new int[biggerList.length];
+				for(int j = 0; j < list.length; j++)
+				{
+					 list[j] = biggerList[j];
+				}
+				i++;
 			}
 			else // moves the rest of the list
 			{
@@ -69,6 +79,30 @@ public class SimpleList
 			}
 		}
 		count --;
+		int emptyCount = 0;
+		for(int j = 0; j < list.length; j++)
+		{
+			if(list[j] == 0)
+				emptyCount++;
+		}
+		if(emptyCount/list.length >= 0.25)
+		{
+			int reduceAmount = (int) (list.length * (0.25));
+			int [] smallerList = new int[list.length - reduceAmount];
+			if(list.length-reduceAmount >= 1)
+			{
+				for(int j = 0; j < smallerList.length; j++)
+				{
+					smallerList[j] = list[j];
+				}
+				list = new int[smallerList.length];
+				for(int j = 0; j < list.length; j++)
+				{
+					 list[j] = smallerList[j];
+				}
+			}
+			
+		}
 	}
 	
 	/**
