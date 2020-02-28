@@ -4,6 +4,8 @@ package cse360assign2;
  * Class ID: 388
  * Assignment #: 2
  * Description: This file creates a class and performs functions on it.
+ * URL: https://github.com/meganmcelenney/SimpleList/blob/master/cse360assign2/src/cse360assign2/SimpleList.java
+ * It is public and can be accessed through the link.
  */
 
 /**
