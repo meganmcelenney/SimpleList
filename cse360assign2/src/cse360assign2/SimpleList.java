@@ -2,7 +2,7 @@ package cse360assign2;
 
 /* Author: Megan McElenney
  * Class ID: 388
- * Assignment #: 1
+ * Assignment #: 2
  * Description: This file creates a class and performs functions on it.
  */
 
@@ -35,10 +35,11 @@ public class SimpleList
 	public void add(int addition)
 	{
 		count = count();
-		for(int i = count; i > 0; i--)
+		for(int i = list.length; i > 0; i--)
 		{
 			if(count == list.length) // accounts for the kicking the last element out
 			{
+				//adjusts size
 				int increase = (list.length)/2;
 				int [] biggerList = new int[list.length + increase];
 				for(int j = 0; j < list.length; j++)
@@ -85,6 +86,7 @@ public class SimpleList
 			if(list[j] == 0)
 				emptyCount++;
 		}
+		//adjusts size
 		if(emptyCount/list.length >= 0.25)
 		{
 			int reduceAmount = (int) (list.length * (0.25));
@@ -151,4 +153,46 @@ public class SimpleList
 		}
 		return -1;
 	}
+	
+	public void append(int appendThis)
+	{
+		count = count();
+		if(count == list.length) // accounts for the kicking the last element out
+		{
+			int increase = (list.length)/2;
+			int [] biggerList = new int[list.length + increase];
+			for(int j = 0; j < list.length; j++)
+			{
+				biggerList[j] = list[j];
+			}
+			list = new int[biggerList.length];
+			for(int j = 0; j < list.length; j++)
+			{
+				 list[j] = biggerList[j];
+			}
+		}
+		list[count] = appendThis;
+		count++;
+	}
+	
+	public int first()
+	{
+		if(list.length < 1)
+			return -1;
+		else
+			return list[0];
+	}
+	public int last()
+	{
+		if(list.length < 1)
+			return -1;
+		else
+			return list[count];
+	}
+	
+	public int size()
+	{
+		return list.length+1;
+	}
+	
 }
